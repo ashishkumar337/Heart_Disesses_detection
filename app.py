@@ -89,16 +89,18 @@ with col1:
             
             # Prettify the visual
             st.markdown("### 📊 Prediction Result")
-            if "⚠️" in result_str:
-                st.error(f"**High Risk:** {result_str}", icon="⚠️")
+            if "Output: 1" in result_str:
+                st.error(f"{result_str}", icon="⚠️")
                 conf_str = result_str.split("Confidence: ")[1].split("%")[0]
                 conf_val = min(1.0, float(conf_str)/100.0)
                 st.progress(conf_val, text="Confidence Level")
-            elif "✅" in result_str:
-                st.success(f"**Low Risk:** {result_str}", icon="✅")
+                st.info("ℹ️ **Result Explained:** The output is **1**, which means the algorithm has detected patterns indicating **Heart Disease**.")
+            elif "Output: 0" in result_str:
+                st.success(f"{result_str}", icon="✅")
                 conf_str = result_str.split("Confidence: ")[1].split("%")[0]
                 conf_val = min(1.0, float(conf_str)/100.0)
                 st.progress(conf_val, text="Confidence Level")
+                st.info("ℹ️ **Result Explained:** The output is **0**, which means the algorithm has evaluated **No Heart Disease**.")
             else:
                 st.warning(result_str)
                 

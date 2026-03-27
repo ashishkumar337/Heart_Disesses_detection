@@ -35,12 +35,11 @@ def predict_heart_disease(patient_data: dict) -> str:
             confidence = probs[pred] * 100
         else:
             confidence = 100.0  # fallback for models without proba
-            
         if pred == 1:
-            return f"⚠️ Heart Disease Detected (Confidence: {confidence:.1f}%)"
+            return f"**Output: 1** ⚠️ (Heart Disease Detected) | Confidence: {confidence:.1f}%"
         else:
-            return f"✅ No Heart Disease Detected (Confidence: {confidence:.1f}%)"
-            
+            return f"**Output: 0** ✅ (No Heart Disease Detected) | Confidence: {confidence:.1f}%"
+
     except Exception as e:
         return f"Prediction Error: Ensure input matches required features. Details: {e}"
 
