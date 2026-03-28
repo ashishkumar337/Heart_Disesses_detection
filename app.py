@@ -38,7 +38,7 @@ st.markdown("---")
 st.sidebar.header("🩺 Enter Patient Details")
 
 def user_input_features():
-    age = st.sidebar.number_input("Age (Years)", 20, 120, 50)
+    age = st.sidebar.number_input("Age (Years)", 0, 120, 50)
     sex = st.sidebar.selectbox("Sex (0 = Female, 1 = Male)", [0, 1], index=1)
     cp = st.sidebar.selectbox("Chest Pain Type (cp) [0=Typical, 1=Atypical, 2=Non-anginal, 3=Asymptomatic]", [0, 1, 2, 3])
     trestbps = st.sidebar.number_input("Resting Blood Pressure (mm Hg)", 80, 200, 120)
